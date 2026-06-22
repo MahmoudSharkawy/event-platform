@@ -149,9 +149,9 @@ PATCH /api/admin/users/{id}/role          # Change user role
 
 | Service | Platform |
 |---|---|
-| **Frontend** | Vercel, Netlify (free) |
-| **Backend** | Railway, Render (free tier) |
-| **Database** | Railway MySQL, PlanetScale (free) |
+| **Frontend** | Vercel, Netlify |
+| **Backend** | Railway, Render  |
+| **Database** | Railway MySQL, PlanetScale |
 
 ```bash
 # Frontend build
