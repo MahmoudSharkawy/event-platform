@@ -6,6 +6,9 @@ A modern, full-stack event management and ticketing platform built with **Larave
 
 ## 📸 UI Preview
 
+screenshots/home.png
+
+
 ### Home Page — Event Listing
 ```
 ┌─────────────────────────────────────────────────────────────┐
