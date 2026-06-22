@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-ink: #14171f;
+  --color-ink-soft: #1d212c;
+  --color-marquee: #f2b544;
+  --color-marquee-soft: #f7cd7e;
+  --color-stub: #fbf7ee;
+  --color-stub-dim: #efe9da;
+  --color-velvet: #c1432f;
+  --color-mist: #8a8f9c;
+  --color-paper-ink: #1f2330;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-stub);
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  .input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--color-stub) 15%, transparent);
+    background: var(--color-ink-soft);
+    color: var(--color-stub);
+    padding: 0.6rem 0.85rem;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .input:focus {
+    border-color: var(--color-marquee);
+  }
+
+  .btn-primary {
+    border-radius: 9999px;
+    background: var(--color-marquee);
+    color: var(--color-ink);
+    font-weight: 600;
+    padding: 0.65rem 1.4rem;
+    font-size: 0.9rem;
+    transition: background-color 0.15s ease;
+  }
+  .btn-primary:hover {
+    background: var(--color-marquee-soft);
+  }
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, var(--color-stub) 25%, transparent);
+    color: var(--color-stub);
+    font-weight: 500;
+    padding: 0.6rem 1.3rem;
+    font-size: 0.9rem;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-marquee);
+    color: var(--color-marquee);
+  }
+}
+
+/* Perforated ticket-stub divider: a dashed line with punched circular
+   notches top and bottom, used on event cards and booking receipts so
+   the UI reads like an actual paper ticket rather than a generic card. */
+.ticket-stub {
+  position: relative;
+  background: var(--color-stub);
+  color: var(--color-paper-ink);
+  border-radius: 14px;
+  overflow: visible;
+}
+
+.ticket-stub__perf {
+  position: relative;
+  border-left: 2px dashed var(--color-stub-dim);
+}
+
+.ticket-stub__perf::before,
+.ticket-stub__perf::after {
+  content: "";
+  position: absolute;
+  left: -9px;
+  width: 18px;
+  height: 18px;
+  background: var(--color-ink);
+  border-radius: 9999px;
+}
+
+.ticket-stub__perf::before {
+  top: -9px;
+}
+
+.ticket-stub__perf::after {
+  bottom: -9px;
+}
+
+@media (max-width: 640px) {
+  .ticket-stub__perf {
+    border-left: none;
+    border-top: 2px dashed var(--color-stub-dim);
+  }
+  .ticket-stub__perf::before,
+  .ticket-stub__perf::after {
+    left: auto;
+    top: -9px;
+  }
+  .ticket-stub__perf::before {
+    left: -9px;
+  }
+  .ticket-stub__perf::after {
+    right: -9px;
+    left: auto;
+  }
+}
